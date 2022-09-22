@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { ImDownload3 } from "react-icons/im";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
@@ -55,6 +56,40 @@ export default function Home() {
               </motion.div>
             </AnimatePresence>
             <div className={styles.left_col_bottom}>
+              <motion.div
+                whileHover={{
+                  scale: [1, 1.4, 1.2],
+                  transition: {
+                    duration: 0.2,
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    x: "-100px",
+                    opacity: 0,
+                  },
+                  visible: {
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                      delay: 0.4,
+                      duration: 0.4,
+                    },
+                  },
+                }}
+              >
+                <ImDownload3 />{" "}
+                <a
+                  className={styles.download}
+                  rel="noreferrer"
+                  href="https://drive.google.com/file/d/1VjH-5SfHsn0puyTxnKNfACpYoweN_Mms/view?usp=sharing"
+                  target="_blank"
+                >
+                  Donwload resume
+                </a>
+              </motion.div>
               <div style={{ display: "flex", gap: "10px" }}>
                 <motion.p
                   initial="hidden"

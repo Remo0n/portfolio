@@ -57,6 +57,11 @@
   cursor: grab;
 }
 
+.download {
+  padding-left: 8px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 900px) {
   .two_col {
     flex-direction: column;
