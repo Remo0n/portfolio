@@ -11,7 +11,7 @@ const Footer = () => {
       <div>
         <p className={style.find}>find me in:</p>
         <a
-          href="https://www.linkedin.com/in/remoon-peter-20152016/"
+          href="https://www.linkedin.com/in/remoonpeter/"
           target="_blank"
           rel="noopener noreferrer"
         >

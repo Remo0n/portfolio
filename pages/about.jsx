@@ -8,6 +8,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 const About = () => {
   const [showReact, setShowReact] = useState(true);
+  const [showTesting, setShowTesting] = useState(false);
   const [showNext, setShowNext] = useState(false);
   const [showHtml, setShowHtml] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
@@ -102,11 +103,13 @@ const About = () => {
         >
           <span className={style.ml_2}> /**</span>
           <span style={{ fontWeight: "bold" }}>* About me</span>
-          <span>* Creative and self-starting Front-End Developer</span>
-          <span>* with 2 years experience and maintaining</span>
-          <span>* responsive websites.</span>
-          <span>* Proficient in HTML, CSS, JavaScript</span>
-          <span>* and React plus modern libraries and frameworks.</span>
+          <span>* Software Engineer (Frontend)</span>
+          <span>* Over 5 years experience </span>
+          <span>* crafting responsive, user-centric web and mobile applications that drive engagement and business growth. </span>
+          <span>
+            * I specialize in modern JavaScript frameworks—primarily ReactJS
+          </span>
+          <span>* —and bring a strong foundation in HTML5, CSS3, and design systems.</span>
 
           <span className={style.ml_2}>**/</span>
         </motion.div>
@@ -197,6 +200,64 @@ const About = () => {
                       </p>
                       <p>
                         <BsMarkdownFill /> redux.md
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className={style.skill}>
+                <div
+                  onClick={(e) => setShowTesting(!showTesting)}
+                  className={style.dropdownSkill}
+                >
+                  <span>
+                    {showTesting ? <FiChevronDown /> : <FiChevronRight />}
+                  </span>
+                  <span style={{ color: "rgb(235,203,139)" }}>
+                    <BsFolderFill />
+                  </span>
+                  <span>Testing</span>
+                </div>
+                <AnimatePresence>
+                  {showTesting && (
+                    <motion.div
+                      className={style.showSkill}
+                      initial="hidden"
+                      animate="visible"
+                      exit="go"
+                      variants={{
+                        hidden: {
+                          y: "-20px",
+                          opacity: 0,
+                        },
+                        visible: {
+                          y: "0",
+                          opacity: 1,
+                          transition: {
+                            type: "spring",
+                            delay: 0.2,
+                            duration: 0.5,
+                          },
+                        },
+                        go: {
+                          y: "-20px",
+                          opacity: 0,
+                          transition: {
+                            type: "spring",
+                            delay: 0.2,
+                            duration: 0.3,
+                          },
+                        },
+                      }}
+                    >
+                      <p>
+                        <BsMarkdownFill /> Manual Testing
+                      </p>
+                      <p>
+                        <BsMarkdownFill /> Automation Testing
+                      </p>
+                      <p>
+                        <BsMarkdownFill /> Cypress
                       </p>
                     </motion.div>
                   )}

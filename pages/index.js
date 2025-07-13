@@ -52,7 +52,7 @@ export default function Home() {
               >
                 <p>Hello! I am</p>
                 <h1>Remon Botros</h1>
-                <h3>front-end developer</h3>
+                <h3>Software Engineer</h3>
               </motion.div>
             </AnimatePresence>
             <div className={styles.left_col_bottom}>
@@ -84,7 +84,7 @@ export default function Home() {
                 <a
                   className={styles.download}
                   rel="noreferrer"
-                  href="https://drive.google.com/file/d/1VjH-5SfHsn0puyTxnKNfACpYoweN_Mms/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1YyBb8l8VJ8JE13lhF7aeXp9aRYkAmonZ/view?usp=sharing"
                   target="_blank"
                 >
                   Donwload resume
@@ -146,7 +146,7 @@ export default function Home() {
                 <p>&#x276F;</p>
                 <input
                   type="text"
-                  placeholder="whois"
+                  placeholder="Who Am I"
                   onChange={(e) => setText(e.target.value)}
                 />
               </motion.div>
