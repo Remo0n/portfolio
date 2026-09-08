@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import "../styles/globals.css";
-import { motion } from "framer-motion";
-function MyApp({ Component, pageProps, router }) {
+
+function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Component {...pageProps} />

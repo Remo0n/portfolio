@@ -1,35 +1,109 @@
-.navbar {
-  color: lightgray;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--space);
+  min-height: var(--header-h);
   display: flex;
   align-items: center;
-  padding-bottom: 1rem;
-  /* box-shadow: 0px 2px 5px rgb(255, 255, 255); */
-
-  background-color: rgb(13, 17, 23);
+  justify-content: space-between;
+  gap: 1.5rem;
 }
-.navbar ul {
-  background-color: rgb(1, 4, 9);
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.wordmark:hover {
+  color: var(--accent);
+}
+
+.nav {
   display: flex;
-  border: 1px solid gray;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.navbar li {
-  border-right: 1px solid gray;
-  padding: 0.5rem 1rem;
-  list-style: none;
-  cursor: pointer;
-}
-.active {
-  border-top: 2px solid rgb(191, 97, 106) !important;
-  background-color: rgb(13, 17, 23);
-  border-bottom: none;
+  align-items: center;
+  gap: 1.75rem;
 }
 
-@media screen and (max-width: 400px) {
-  .navbar li {
+.link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--text);
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .toggle {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--header-h);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem var(--space) 1.25rem;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .link {
     width: 100%;
-    font-size: 14px;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .active::after {
+    display: none;
+  }
+
+  .active {
+    color: var(--accent);
   }
 }

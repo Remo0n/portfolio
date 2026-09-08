@@ -1,45 +1,54 @@
-import style from "../styles/Footer.module.css";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
+import { site } from "../data/site";
+import style from "../styles/Footer.module.css";
+
 const Footer = () => {
-  const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
-  const time = current.getHours() + ":" + current.getMinutes();
   return (
-    <div className={style.footer}>
-      <div>
-        <p className={style.find}>find me in:</p>
-        <a
-          href="https://www.linkedin.com/in/remoonpeter/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>
+    <footer className={style.footer}>
+      <div className={style.inner}>
+        <div className={style.links}>
+          <p className={style.label}>Find me</p>
+          <a
+            className={style.icon}
+            href={site.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <BsLinkedin />
-          </span>
-        </a>
-        <a
-          href="https://github.com/Remo0n"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>
+          </a>
+          <a
+            className={style.icon}
+            href={site.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <BsGithub />
-          </span>
-        </a>
-        <a
-          href="https://twitter.com/peter_remoon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>
+          </a>
+          <a
+            className={style.icon}
+            href={site.social.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
             <BsTwitter />
-          </span>
-        </a>
+          </a>
+          <a
+            className={style.icon}
+            href={`mailto:${site.email}`}
+            aria-label="Email"
+          >
+            <HiOutlineMail />
+          </a>
+        </div>
+        <p className={style.meta}>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
       </div>
-      <div>{time + " | " + date}</div>
-    </div>
+    </footer>
   );
 };
 

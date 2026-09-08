@@ -1,152 +1,148 @@
-.about {
-  background-color: rgb(13, 17, 23);
-  height: calc(100vh - 110px);
-  color: whitesmoke;
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 4.5rem) var(--space) 5rem;
+}
+
+.intro {
+  max-width: 42rem;
+  margin-bottom: 3.5rem;
+}
+
+.kicker {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0.6rem 0 1.1rem;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.section {
+  margin-top: 3.25rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.job {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+  gap: 1.25rem 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.job.compact {
+  align-items: baseline;
+}
+
+.meta {
+  color: var(--muted);
+}
+
+.period {
+  font-size: 0.92rem;
+}
+
+.place {
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}
+
+.jobTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.company {
+  color: var(--muted);
+  margin: 0.2rem 0 0.85rem;
+}
+
+.bullets {
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.55rem;
+}
+
+.compactNote {
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.skillGroup h3,
+.edu h3,
+.lang dt {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.skillGroup ul,
+.eduList,
+.lang {
+  list-style: none;
+  padding: 0;
+  color: var(--muted);
+}
+
+.skillGroup li,
+.edu p,
+.lang dd {
+  font-size: 0.98rem;
+}
+
+.edu {
+  padding: 0.35rem 0 1rem;
+}
+
+.lang {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lang div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  position: relative;
+  gap: 1rem;
+  max-width: 22rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
 }
 
-.about .left {
-  display: flex;
-  margin-left: 10%;
-  /* background-color: rgb(51, 41, 107); */
-  overflow: hidden;
-  height: 500px;
-  position: relative;
-}
-
-.about .left_number {
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-}
-.about .left_line {
-  width: 1px;
-  height: 400px;
-  margin-left: 1rem;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.2),
-    rgba(0, 0, 0, 0)
-  );
-}
-.about .left_line2 {
-  width: 1px;
-  height: 180px;
-  margin: auto;
-  margin-left: 1rem;
-  background-color: rgba(226, 226, 226, 0.185);
-}
-.text_fade_01 {
-  opacity: 0.1;
-}
-.text_fade_02 {
-  opacity: 0.3;
-}
-.text_fade_03 {
-  opacity: 0.6;
-}
-
-.about .left_about {
-  display: flex;
-  flex-direction: column;
-  /* margin-top: 1rem; */
-  justify-content: center;
-  margin-left: 14px;
-  color: rgb(151, 153, 163);
-}
-.about .left_about span {
-  font-size: 18px;
-}
-.about .ml_2 {
-  margin-left: -15px;
-}
-.about .right {
-  background-color: rgb(1, 4, 9);
-  height: calc(100vh - 110px);
-  padding: 1rem;
-  width: 400px;
-}
-.about .right_container h3 {
-  font-weight: bold;
-  margin-left: 15px;
-  margin-bottom: 10px;
-  font-size: 24px;
-}
-.about .right .skill {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-}
-.about .right .skill {
-  font-size: 18px;
-}
-.about .right .skill .dropdownSkill {
-  display: flex;
-  gap: 4px;
-  cursor: pointer;
-  width: fit-content;
-}
-.about .right .showSkill {
-  margin-left: 30px;
-  color: rgb(129, 161, 193);
-}
-.about .skill_menu {
-  position: absolute;
-  right: 1rem;
-  top: 0;
-  font-size: 2rem;
-  cursor: pointer;
-  display: none;
-  opacity: 0;
-  z-index: 999;
-}
-
-@media screen and (max-width: 1000px) {
-  .about .left {
-    margin-left: 4%;
-  }
-  .about .right {
-    width: 320px;
-  }
-}
-@media screen and (max-width: 850px) {
-  .about .right {
-    display: none;
-    position: absolute;
-    right: 0;
-    overflow: auto;
-  }
-  .about .skill_menu {
-    display: flex;
-    opacity: 1;
-  }
-  .about .right_container h3 {
-    font-weight: bold;
-    font-size: 20px;
-  }
-  .about .right .skill {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 510px) {
-  .about .left {
-    height: 400px;
-  }
-  .about .left_number {
-    margin-top: 100px;
-    font-size: 12px;
-  }
-  .about .left_about span {
-    font-size: 14px;
-  }
-  .about .left_line {
-    margin-left: 0.5rem;
-  }
-  .about .left_line2 {
-    margin-left: 0.5rem;
+@media screen and (max-width: 720px) {
+  .job {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 }

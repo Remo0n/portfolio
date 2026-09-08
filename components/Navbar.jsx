@@ -1,30 +1,70 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import style from "../styles/Navbar.module.css";
 import { useRouter } from "next/router";
+import { HiOutlineMenu } from "react-icons/hi";
+import { AiOutlineClose } from "react-icons/ai";
+import { site } from "../data/site";
+import style from "../styles/Navbar.module.css";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/project", label: "Work" },
+];
+
 const Navbar = () => {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [router.pathname]);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
-    <div className={style.navbar}>
-      <ul>
-        <Link href="/" passHref>
-          <li className={router.pathname === "/" ? `${style.active}` : ""}>
-            _hello
-          </li>
+    <header className={style.header}>
+      <div className={style.inner}>
+        <Link href="/" className={style.wordmark}>
+          {site.name}
         </Link>
-        <Link href="/about" passHref>
-          <li className={router.pathname === "/about" ? `${style.active}` : ""}>
-            _about me
-          </li>
-        </Link>
-        <Link href="/project" passHref>
-          <li
-            className={router.pathname === "/project" ? `${style.active}` : ""}
-          >
-            _projects
-          </li>
-        </Link>
-      </ul>
-    </div>
+        <button
+          type="button"
+          className={style.toggle}
+          aria-expanded={open}
+          aria-controls="primary-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? <AiOutlineClose /> : <HiOutlineMenu />}
+        </button>
+        <nav
+          id="primary-nav"
+          className={`${style.nav} ${open ? style.navOpen : ""}`}
+          aria-label="Primary"
+        >
+          {links.map((item) => {
+            const active = router.pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`${style.link} ${active ? style.active : ""}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+    </header>
   );
 };
 
